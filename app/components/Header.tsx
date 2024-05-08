@@ -16,7 +16,7 @@ function Header() {
               <IoIosSearch className="h-[25px] w-[25px]" />
             </div>
             <div className="mx-auto">
-              <Image src={logo} alt="" height={34} width={180} />
+              <Image src={logo} alt="" height={34} />
             </div>
             <div className="flex">
               <span className="me-5">
@@ -34,23 +34,23 @@ function Header() {
           <hr className="text-[#E3E3E3]" />
           <div className="mt-4">
             <ul className="flex justify-between lg:text-base open-sans">
-              <li>
+              <li className="hover:text-red-500 transition-colors duration-300 ease-in-out">
                 <Link href={"#"}> Jewelry & Accessories </Link>
               </li>
-              <li>
+              <li className="hover:text-red-500 transition-colors duration-300 ease-in-out">
                 <Link href={"#"}>Clothing & Shoes</Link>
               </li>
-              <li>
-                <Link href={"#"}>Clothing & Shoes</Link>
+              <li className="hover:text-red-500 transition-colors duration-300 ease-in-out">
+                <Link href={"#"}>Home & Living</Link>
               </li>
-              <li>
-                <Link href={"#"}>Clothing & Shoes</Link>
+              <li className="hover:text-red-500 transition-colors duration-300 ease-in-out">
+                <Link href={"#"}>Wedding & Party</Link>
               </li>
-              <li>
-                <Link href={"#"}>Clothing & Shoes</Link>
+              <li className="hover:text-red-500 transition-colors duration-300 ease-in-out">
+                <Link href={"#"}>Toys & Entertainment</Link>
               </li>
-              <li>
-                <Link href={"#"}>Clothing & Shoes</Link>
+              <li className="hover:text-red-500 transition-colors duration-300 ease-in-out">
+                <Link href={"#"}>Art & Collectibles</Link>
               </li>
             </ul>
           </div>
