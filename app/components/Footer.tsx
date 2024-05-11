@@ -2,7 +2,12 @@ import React from "react";
 import Image from "next/image";
 import logo from "../../public/assets/Img/logo.png";
 import Payment from "../../public/assets/Img/icons_payment 1.png";
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaLinkedinIn,
+  FaInstagram,
+} from "react-icons/fa";
 import { MdArrowUpward } from "react-icons/md";
 import Link from "next/link";
 
@@ -15,7 +20,8 @@ const Footer = () => {
             <Image src={logo} alt="Logo" />
           </div>
           <p className="text-sm text-gray-600 max-w-xs text-center md:text-left">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse non cupiditate quae nam molestias.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse non
+            cupiditate quae nam molestias.
           </p>
           <ul className="flex gap-6 mt-4">
             <li>
@@ -140,20 +146,20 @@ const Footer = () => {
       </div>
 
       <div className="bg-black mt-8">
-           <div className="container justify-around flex-wrap flex mx-auto h-[auto]">
-             <h5 className="text-white mt-[15px] mb-[15px]">
-               © 2022 Coral , Inc.
-             </h5>
-            <Image
-              className="h-[24px] mt-[15px] mb-[15px]"
-              src={Payment}
-              alt="Logo"
-            />
-            <h6 className="text-white mt-[15px] mb-[15px] flex">
-              Scroll to top <MdArrowUpward className="mt-1" />
-            </h6>
-          </div>
+        <div className="container justify-around flex-wrap flex mx-auto h-[auto]">
+          <h5 className="text-white mt-[15px] mb-[15px]">
+            © 2022 Coral , Inc.
+          </h5>
+          <Image
+            className="h-[24px] mt-[15px] mb-[15px]"
+            src={Payment}
+            alt="Logo"
+          />
+          <h6 className="text-white mt-[15px] mb-[15px] flex">
+            Scroll to top <MdArrowUpward className="mt-1" />
+          </h6>
         </div>
+      </div>
     </footer>
   );
 };

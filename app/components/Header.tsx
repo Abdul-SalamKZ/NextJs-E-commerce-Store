@@ -44,13 +44,21 @@ function Header() {
                 onClick={toggleMenu}
                 className="text-black border-black h-[25px] w-[25px]"
               >
-                {isOpen ? <IoClose className="h-[25px] w-[25px]"/> : <IoIosMenu className="h-[25px] w-[25px]" />}
+                {isOpen ? (
+                  <IoClose className="h-[25px] w-[25px]" />
+                ) : (
+                  <IoIosMenu className="h-[25px] w-[25px]" />
+                )}
               </button>
             </div>
           </div>
           <hr className="text-[#E3E3E3]" />
-          <div className={`${isOpen ? "block" : "hidden"} lg:block mt-4`}>
-            <ul className="lg:flex justify-between lg:text-base open-sans">
+          <div
+            className={`${
+              isOpen ? "block" : "hidden"
+            } lg:block mt-4 flex justify-center`}
+          >
+            <ul className="lg:flex justify-between lg:text-base  open-sans">
               <li className="hover:text-red-500 py-2  transition-colors duration-300 ease-in-out">
                 <Link href={"#"}>Jewelry & Accessories</Link>
               </li>

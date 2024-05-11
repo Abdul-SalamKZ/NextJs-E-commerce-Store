@@ -12,7 +12,8 @@ const Hero = () => {
             <div className="roboto">
               <h1 className="text-7xl font-light">Collections</h1>
               <p className="text-3xl font-normal leading-[55px] my-[52px]">
-              You Can Explore And Shop Many Different Collection From Various Brands Here.  
+                You Can Explore And Shop Many Different Collection From Various
+                Brands Here.
               </p>
               <button className="py-[19px] px-[26px] flex bg-black text-white text-[29px]">
                 <FaShoppingBag className="mt-1 me-2" /> Shop Now
