@@ -17,7 +17,7 @@ function Header() {
   };
 
   return (
-    <header className="py-8 mx-auto bg-[#1E28320D]">
+    <header className="py-8 px-2 mx-auto bg-[#1E28320D]">
       <nav>
         <div className="container mx-auto">
           <div className="flex justify-between items-center mb-5">

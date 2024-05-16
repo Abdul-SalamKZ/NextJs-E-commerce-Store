@@ -13,6 +13,7 @@ import Image from "next/image";
 import { useQuery, gql } from "@apollo/client";
 import { useSearchParams } from "next/navigation";
 
+
 const GET_TAGS = gql`
   query {
     tags(shopId: "cmVhY3Rpb24vc2hvcDpGN2ZrM3plR3o4anpXaWZzQQ==") {
@@ -26,7 +27,7 @@ const GET_TAGS = gql`
   }
 `;
 
-const Product = () => {
+const Product = () => {  
   const {
     loading: tagsLoading,
     error: tagsError,
@@ -34,8 +35,8 @@ const Product = () => {
   } = useQuery(GET_TAGS);
 
   const searchParams = useSearchParams();
-  const search = searchParams.get ('tag')
-  if (tagsLoading) return <p>Loading...</p>;
+   const search = searchParams.get ('tag')
+  if (tagsLoading ) return <p>Loading...</p>;
   if (tagsError) return <p>Error loading data...</p>;
 
 
@@ -50,13 +51,15 @@ const Product = () => {
         <div className="flex justify-between mt-10 flex-wrap">
           <div>
             <ul className="flex gap-5 flex-wrap justify-between lg:text-base open-sans">
-              <li className="hover:text-red-500 transition-colors font-semibold duration-300 ease-in-out">
-                <Link scroll={false} href={"#"}>
+              <li className="hover:text-red-500 transition-colors  duration-300 ease-in-out">
+              <Link
+                    scroll={false}
+                    href="/"
+                    className={`text-black mr-4  hover:text-red-500 transition-colors  duration-300 ease-in-out`}>
                   All Products
                 </Link>
               </li>
               {tagsData.tags.nodes.map((items: any) => {
-                // const isActive = search === items.name;
                 const isActive = search === items.slug;
                 return (
                   <li className="mr-5">
