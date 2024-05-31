@@ -10,10 +10,9 @@ export default function Home() {
   return (
     <>
       <ApolloProvider client={client}>
-        <Header />
-        <Hero />
+      
         <Product />
-        <Footer />
+
       </ApolloProvider>
     </>
   );

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Link from "next/link"; // Import Link from next/link, not "next/navigation"
+import Link from "next/link";
 import { FaFilter } from "react-icons/fa6";
 import Image from "next/image";
 import { useQuery } from "@apollo/client";
@@ -30,6 +30,7 @@ const GET_DATA = gql(`
               } 
               description
               _id
+              slug
               variants {
                 _id
                 title
@@ -61,6 +62,37 @@ const ProductList = () => {
 
   const tags =
     tagsData && tagsData.tags && tagsData.tags.nodes ? tagsData.tags.nodes : [];
+
+  const renderSkeletonLoading = () => (
+    <div className="container mx-auto">
+      <div className="flex justify-between mt-5 flex-wrap">
+        <div>
+          <ul className="flex gap-5 flex-wrap justify-between lg:text-base open-sans">
+            {[...Array(6)].map((_, index) => (
+              <li
+                key={index}
+                className="mr-5 h-6 bg-gray-200 w-24 animate-pulse"
+              ></li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mt-10 lg:p-0">
+        {[...Array(8)].map((_, index) => (
+          <div
+            key={index}
+            className="rounded-lg bg-white shadow-md flex flex-col animate-pulse"
+          >
+            <div className="aspect-w-16 aspect-h-9 bg-gray-200 flex-1"></div>
+            <div className="p-6 flex-1">
+              <div className="h-32 bg-gray-200 w-full mb-4"></div>
+              <div className="h-12 bg-gray-200 w-2/4"></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 
   return (
     <section className="py-16">
@@ -124,9 +156,8 @@ const ProductList = () => {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mt-9 lg:p-0">
             {tagsData?.catalogItems?.edges?.map(({ node }: any) => (
-              <Link key={node.product._id} href={`/product/${node.product._id}`}>
-                <a className="rounded-lg bg-white shadow-md hover:shadow-xl flex flex-col">
-                  <Image className="w-full" src={Food} alt="" />
+              <Link className="rounded-lg bg-white shadow-md hover:shadow-xl flex flex-col" href={`/products/${node.product.slug}`}>
+                <Image className="w-full" src={Food} alt="" />
                   <div className="flex justify-between px-[3px] flex-1">
                     <p className="py-3 font-medium text-sm flex">
                       {node.product.title}
@@ -134,8 +165,7 @@ const ProductList = () => {
                     <p className="py-3 text-sm">
                       {node.product.pricing.displayPrice}
                     </p>
-                  </div>
-                </a>
+                  </div>  
               </Link>
             ))}
           </div>
